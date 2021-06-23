@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 0;        /* border pixel of windows */
+static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */
@@ -30,7 +30,7 @@ static const Rule rules[] = {
 	/* class     instance  title           tags mask    iscentered isfloating  isterminal  noswallow  monitor */
 	{ "Gimp",    NULL,     NULL,           0,           0,         1,          0,           0,        -1 },
 	{ "Firefox", NULL,     NULL,           1 << 8,      0,    0,          0,          -1,        -1 },
-	{ "St",      NULL,     NULL,           0,           0,         0,          1,           0,        -1 },
+	{ "St",      NULL,     NULL,           0,           1,         0,          1,           0,        -1 },
     { "Alacritty", NULL, NULL, 0, 1, 0, 1, 0, -1 },
 	{ NULL,      NULL,     "Event Tester", 0,           0,         0,          0,           1,        -1 }, /* xev */
 };
@@ -69,8 +69,8 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "alacritty", NULL };
 //static const char *urlcmd[]  = { "clipmenu-url", NULL };
 static const char *clipcmd[]  = { "clipmenu", "-i", "-fn", dmenufont, NULL };
-static const char *cmdbrightnessup[]  = { "sudo", "brightness", "up", NULL };
-static const char *cmdbrightnessdown[]  = { "sudo", "brightness", "down", NULL };
+static const char *cmdbrightnessup[]  = { "sudo", "brightnessctl", "set", "+10", NULL };
+static const char *cmdbrightnessdown[]  = { "sudo", "brightness", "set", "10-", NULL };
 static const char *cmdsoundup[]  = { "amixer", "-q", "sset", "Master", "5%+", NULL };
 static const char *cmdsounddown[]  = { "amixer", "-q", "sset", "Master", "5%-", NULL };
 static const char *cmdsoundtoggle[]  = { "amixer", "-q", "sset", "Master", "toggle", NULL };
